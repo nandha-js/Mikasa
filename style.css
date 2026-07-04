@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background: #000;
+    color: white;
+}
+
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.45), rgba(0,0,0,.75));
+    z-index: -2;
+}
+
+.hero, .message, .quote, .thanks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    transition: 2s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    text-shadow: 0 0 25px hotpink;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-top: 20px;
+    color: #ff6bb5;
+}
+
+.hero p {
+    width: 80%;
+    max-width: 800px;
+    margin-top: 30px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+button {
+    margin-top: 45px;
+    padding: 16px 45px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff5da2, #ffcf5a);
+    color: white;
+    box-shadow: 0 0 30px #ff5da2;
+    transition: .4s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+.message {
+    backdrop-filter: blur(8px);
+}
+
+.message h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #ffb6d9;
+}
+
+.line {
+    font-size: 1.4rem;
+    margin: 14px;
+    opacity: 0;
+    animation: fadeText 2s forwards;
+}
+
+/* Timing for the messages to appear one by one */
+.line:nth-child(2) { animation-delay: 1s; }
+.line:nth-child(3) { animation-delay: 3s; }
+.line:nth-child(4) { animation-delay: 5s; }
+.line:nth-child(5) { animation-delay: 7s; }
+.line:nth-child(6) { animation-delay: 9s; }
+.line:nth-child(7) { animation-delay: 11s; }
+
+.big {
+    font-size: 2rem;
+    color: #ffd966;
+}
+
+.quote h2 {
+    font-size: 2rem;
+    color: #ffb6d9;
+}
+
+.quote h1 {
+    margin-top: 35px;
+    font-size: 3rem;
+    line-height: 1.5;
+    text-shadow: 0 0 18px cyan;
+}
+
+.thanks h1 {
+    font-size: 5rem;
+    color: #ffd966;
+    text-shadow: 0 0 30px gold;
+}
+
+.thanks h2 {
+    margin: 20px;
+    font-size: 3rem;
+    color: #ff5da2;
+}
+
+.thanks p {
+    margin: 15px;
+    font-size: 1.4rem;
+    max-width: 850px;
+}
+
+.heart {
+    margin: 35px;
+    font-size: 90px;
+    animation: beat 1s infinite;
+}
+
+.thanks h3 {
+    font-size: 2rem;
+    color: white;
+}
+
+.fade {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.delay1 { animation-delay: 1.5s; }
+.delay2 { animation-delay: 3s; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeText {
+    to { opacity: 1; }
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+}
+
+/* Mobile Responsiveness */
+@media(max-width: 768px) {
+    .hero h1 { font-size: 2.4rem; }
+    .hero h2 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .quote h1 { font-size: 2rem; }
+    .thanks h1 { font-size: 3rem; }
+    .message h2 { font-size: 2rem; }
+    .line { font-size: 1.1rem; }
+}
